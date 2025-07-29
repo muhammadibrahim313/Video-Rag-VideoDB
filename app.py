@@ -6,6 +6,15 @@ import streamlit as st
 from videodb import SearchType, IndexType
 import videodb
 
+# read only from secrets or env for deployment
+VIDEODB_API_KEY = st.secrets.get("VIDEODB_API_KEY", os.getenv("VIDEODB_API_KEY", ""))
+GEMINI_API_KEY  = st.secrets.get("GEMINI_API_KEY",  os.getenv("GEMINI_API_KEY",  ""))
+OPENAI_API_KEY  = st.secrets.get("OPENAI_API_KEY",  os.getenv("OPENAI_API_KEY",  ""))
+GROQ_API_KEY    = st.secrets.get("GROQ_API_KEY",    os.getenv("GROQ_API_KEY",    ""))
+
+AI_PROVIDER = st.sidebar.selectbox("AI provider", ["gemini", "none"], index=0)
+st.sidebar.caption("Keys are loaded from Streamlit secrets.")
+
 from videorag import VideoRAG
 from videodb_utils import (
     connect_videodb,
