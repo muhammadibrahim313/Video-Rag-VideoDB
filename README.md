@@ -1,4 +1,4 @@
-# VideoRAG - Conversational Video Learning
+# VideoRAG - Conversational Video Learning( Under deveoplment)
 
 Streamlit app for the AI Demos x VideoDB hackathon.
 
